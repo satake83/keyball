@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [4] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MO(4)  ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MO4  ,
     KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
     KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
   ),
@@ -83,7 +83,7 @@ QW_ESCAPE,
 AS_TAB,
 ZX_LSFT,
 OP_DELETE,
-LlMO(4)_ENTER,
+LlMO4_ENTER,
 BTN3BTN2_RSFT,
 BACKSPACEENTER_DELETE,
 
@@ -93,7 +93,7 @@ const uint16_t PROGMEM my_qw[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM my_as[] = {KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM my_zx[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM my_op[] = {KC_O, KC_P, COMBO_END};
-const uint16_t PROGMEM my_lMO(4)[] = {KC_L, KC_MO(4), COMBO_END};
+const uint16_t PROGMEM my_lMO4[] = {KC_L, KC_MO4, COMBO_END};
 const uint16_t PROGMEM my_BTN3BTN2[] = {KC_BTN3, KC_BTN2, COMBO_END};
 const uint16_t PROGMEM my_BACKSPACEENTER[] = {KC_BACKSPACE, KC_ENTER, COMBO_END};
 
@@ -102,7 +102,7 @@ combo_t key_combos[] = {
 [AS_TAB] = COMBO(my_as, KC_TAB),
 [ZX_LSFT] = COMBO(my_zx, KC_LSFT),
 [OP_DELETE] = COMBO(my_op, KC_DELETE),
-[LlMO(4)_ENTER] = COMBO(my_llMO(4), KC_ENTER),
+[LlMO4_ENTER] = COMBO(my_llMO4, KC_ENTER),
 [BTN3BTN2_RSFT] = COMBO(my_BTN3BTN2, KC_RSFT),
 [BACKSPACEENTER_DELETE] = COMBO(my_BACKSPACEENTER, KC_DELETE),
 };
