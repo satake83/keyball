@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MINS  ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MO(4)  ,
     KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
     KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
   ),
@@ -50,6 +50,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_RMOD , RGB_HUD  , RGB_SAD  , RGB_VAD  , SCRL_DVD ,                            CPI_D1K  , CPI_D100 , CPI_I100 , CPI_I1K  , KBC_SAVE ,
     QK_BOOT  , KBC_RST  , _______  , _______  , _______  , _______  ,      _______  , _______  , _______  , _______  , KBC_RST  , QK_BOOT
   ),
+
+  [4] = LAYOUT_universal(
+    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , KC_MO(4)  ,
+    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
+    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+  ),
 };
 // clang-format on
 
@@ -72,46 +79,23 @@ void oledkit_render_info_user(void) {
 
 #ifdef COMBO_ENABLE
 enum combos{
-JQ_QUES,
-JS_SING,
-JW_DOUB,
-JB_BOU,
-FP_PER,
-JD_DOL,
-FU_UNDER,
-JA_AND,
-FH_HUSH,
-JE_EXCL,
-FN_NAMI,
-JT_TASU,
-FY_YAMA,
-FK_KAKE,
-UI_UP,
-MC_DOWN,
-JK_LEFT,
-KL_RIGHT,
-FD_LAYER,
+QW_ESCAPE,
+AS_TAB,
+ZX_LSHIFT,
+OP_DELETE,
+LMO2_ENTER,
+BTN3BTN2_RSHIFT,
+BACKSPACEENTER_DELETE,
+
 };
 
-const uint16_t PROGMEM my_jq[] = {KC_J, KC_Q, COMBO_END};
-const uint16_t PROGMEM my_js[] = {KC_J, KC_S, COMBO_END};
-const uint16_t PROGMEM my_jw[] = {KC_J, KC_W, COMBO_END};
-const uint16_t PROGMEM my_jb[] = {KC_J, KC_B, COMBO_END};
-const uint16_t PROGMEM my_fp[] = {KC_F, KC_P, COMBO_END};
-const uint16_t PROGMEM my_jd[] = {KC_J, KC_D, COMBO_END};
-const uint16_t PROGMEM my_fu[] = {KC_F, KC_U, COMBO_END};
-const uint16_t PROGMEM my_ja[] = {KC_J, KC_A, COMBO_END};
-const uint16_t PROGMEM my_fh[] = {KC_F, KC_H, COMBO_END};
-const uint16_t PROGMEM my_je[] = {KC_J, KC_E, COMBO_END};
-const uint16_t PROGMEM my_fn[] = {KC_F, KC_N, COMBO_END};
-const uint16_t PROGMEM my_jt[] = {KC_J, KC_T, COMBO_END};
-const uint16_t PROGMEM my_fy[] = {KC_F, KC_Y, COMBO_END};
-const uint16_t PROGMEM my_fk[] = {KC_F, KC_K, COMBO_END};
-const uint16_t PROGMEM my_ui[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM my_mco[] = {KC_M, KC_COMM, COMBO_END};
-const uint16_t PROGMEM my_jk[] = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM my_kl[] = {KC_K, KC_L, COMBO_END};
-const uint16_t PROGMEM my_fd[] = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM my_qw[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM my_as[] = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM my_zx[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM my_op[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM my_lMO(4)[] = {KC_L, KC_MO(4), COMBO_END};
+const uint16_t PROGMEM my_BTN3BTN2[] = {KC_BTN3, KC_BTN2 COMBO_END};
+const uint16_t PROGMEM my_BACKSPACEENTER[] = {KC_BACKSPACE, KC_ENTER, COMBO_END};
 
 combo_t key_combos[] = {
 [JQ_QUES] = COMBO(my_jq, KC_QUES),
@@ -121,17 +105,5 @@ combo_t key_combos[] = {
 [FP_PER] = COMBO(my_fp, KC_PERC),
 [JD_DOL] = COMBO(my_jd, KC_DLR),
 [FU_UNDER] = COMBO(my_fu, LSFT(KC_MINS)),
-[JA_AND] = COMBO(my_ja, KC_AMPR),
-[FH_HUSH] = COMBO(my_fh, KC_HASH),
-[JE_EXCL] = COMBO(my_je, KC_EXLM),
-[FN_NAMI] = COMBO(my_fn, KC_TILD),
-[JT_TASU] = COMBO(my_jt, KC_PLUS),
-[FY_YAMA] = COMBO(my_fy, KC_CIRC),
-[FK_KAKE] = COMBO(my_fk, LSFT(KC_8)),
-[UI_UP] = COMBO(my_ui, KC_UP),
-[MC_DOWN] = COMBO(my_mco, KC_DOWN),
-[JK_LEFT] = COMBO(my_jk, KC_LEFT),
-[KL_RIGHT] = COMBO(my_kl, KC_RGHT),
-[FD_LAYER] = COMBO(my_fd, MO(4)),
 };
 #endif
