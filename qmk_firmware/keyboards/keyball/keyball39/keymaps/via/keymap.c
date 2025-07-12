@@ -81,10 +81,10 @@ void oledkit_render_info_user(void) {
 enum combos{
 QW_ESCAPE,
 AS_TAB,
-ZX_LSHIFT,
+ZX_LSFT,
 OP_DELETE,
-LMO2_ENTER,
-BTN3BTN2_RSHIFT,
+LlMO(4)_ENTER,
+BTN3BTN2_RSFT,
 BACKSPACEENTER_DELETE,
 
 };
@@ -94,16 +94,16 @@ const uint16_t PROGMEM my_as[] = {KC_A, KC_S, COMBO_END};
 const uint16_t PROGMEM my_zx[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM my_op[] = {KC_O, KC_P, COMBO_END};
 const uint16_t PROGMEM my_lMO(4)[] = {KC_L, KC_MO(4), COMBO_END};
-const uint16_t PROGMEM my_BTN3BTN2[] = {KC_BTN3, KC_BTN2 COMBO_END};
+const uint16_t PROGMEM my_BTN3BTN2[] = {KC_BTN3, KC_BTN2, COMBO_END};
 const uint16_t PROGMEM my_BACKSPACEENTER[] = {KC_BACKSPACE, KC_ENTER, COMBO_END};
 
 combo_t key_combos[] = {
-[JQ_QUES] = COMBO(my_jq, KC_QUES),
-[JS_SING] = COMBO(my_js, KC_QUOT),
-[JW_DOUB] = COMBO(my_jw, KC_DQUO),
-[JB_BOU] = COMBO(my_jb, KC_PIPE),
-[FP_PER] = COMBO(my_fp, KC_PERC),
-[JD_DOL] = COMBO(my_jd, KC_DLR),
-[FU_UNDER] = COMBO(my_fu, LSFT(KC_MINS)),
+[QW_ESCAPE] = COMBO(my_qw, KC_ESCAPE),
+[AS_TAB] = COMBO(my_as, KC_TAB),
+[ZX_LSFT] = COMBO(my_zx, KC_LSFT),
+[OP_DELETE] = COMBO(my_op, KC_DELETE),
+[LlMO(4)_ENTER] = COMBO(my_llMO(4), KC_ENTER),
+[BTN3BTN2_RSFT] = COMBO(my_BTN3BTN2, KC_RSFT),
+[BACKSPACEENTER_DELETE] = COMBO(my_BACKSPACEENTER, KC_DELETE),
 };
 #endif
