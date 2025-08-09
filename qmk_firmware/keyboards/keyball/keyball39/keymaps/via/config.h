@@ -37,3 +37,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 1
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
+
+// config.h
+#pragma once
+#include "config_common.h"
+
+#define EE_HANDS
+#define SPLIT_HAND_MATRIX
+
+#define COMBO_COUNT 7
+// #undef COMBO_STRICT_TIMER_ENABLE
+// #define COMBO_TERM 80
+
