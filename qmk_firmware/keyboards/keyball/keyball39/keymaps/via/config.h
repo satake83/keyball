@@ -32,7 +32,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_RGB_TEST
 //#    define RGBLIGHT_EFFECT_ALTERNATING
 //#    define RGBLIGHT_EFFECT_TWINKLE
-#endif
 
 #ifndef TAP_CODE_DELAY
 #define TAP_CODE_DELAY 5
