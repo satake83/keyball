@@ -19,7 +19,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-#include QMK_KEYBOARD_H
 
 //#ifdef RGBLIGHT_ENABLE
 //#    define RGBLIGHT_EFFECT_BREATHING
@@ -33,21 +32,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_ALTERNATING
 //#    define RGBLIGHT_EFFECT_TWINKLE
 
-#ifndef TAP_CODE_DELAY
 #define TAP_CODE_DELAY 5
-#endif
 
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
-
-#ifndef DYNAMIC_KEYMAP_LAYER_COUNT
+#define AUTO_MOUSE_DEFAULT_LAYER 1
 #define DYNAMIC_KEYMAP_LAYER_COUNT 4
-#endif
 
 // 両手分割設定
 #define EE_HANDS
 #define SPLIT_HAND_MATRIX
 
 // デフォルトのコンボタイミング
-#ifndef COMBO_TERM
 #define COMBO_TERM 50
-#endif
