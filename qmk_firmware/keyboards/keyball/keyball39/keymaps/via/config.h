@@ -28,20 +28,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#    define RGBLIGHT_EFFECT_SNAKE
 //#    define RGBLIGHT_EFFECT_KNIGHT
 //#    define RGBLIGHT_EFFECT_CHRISTMAS
+#ifdef RGBLIGHT_ENABLE
 #    define RGBLIGHT_EFFECT_STATIC_GRADIENT
+#endif
 //#    define RGBLIGHT_EFFECT_RGB_TEST
 //#    define RGBLIGHT_EFFECT_ALTERNATING
 //#    define RGBLIGHT_EFFECT_TWINKLE
 #endif
 
+#ifndef TAP_CODE_DELAY
 #define TAP_CODE_DELAY 5
+#endif
+
 #define POINTING_DEVICE_AUTO_MOUSE_ENABLE
 #define AUTO_MOUSE_DEFAULT_LAYER 1
+
+#ifndef DYNAMIC_KEYMAP_LAYER_COUNT
 #define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#endif
 
 // 両手分割設定
 #define EE_HANDS
 #define SPLIT_HAND_MATRIX
 
 // デフォルトのコンボタイミング
-#define COMBO_TERM 80
+#ifndef COMBO_TERM
+#define COMBO_TERM 50
+#endif
