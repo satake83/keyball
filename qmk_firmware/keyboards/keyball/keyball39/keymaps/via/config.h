@@ -44,4 +44,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define SPLIT_HAND_MATRIX
 
 // デフォルトのコンボタイミング
-#define COMBO_TERM 50
+#define COMBO_TERM 80
