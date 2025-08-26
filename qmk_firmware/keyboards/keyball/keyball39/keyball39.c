@@ -93,14 +93,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Z, KC_X, KC_C, KC_V, KC_B,                                      NOTEPAD, KC_M, KC_MS_BTN1, KC_MS_BTN3, KC_MS_BTN2, \
     KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LSFT, KC_SPC,   KC_BSPC, KC_ENT,                                      KC_RCTL  \
     ) \
-    { \
-        {   L00,   L01,   L02,   L03,   L04, KC_NO }, \
-        {   L10,   L11,   L12,   L13,   L14, KC_NO }, \
-        {   L20,   L21,   L22,   L23,   L24, KC_NO }, \
-        {   L30,   L31,   L32,   L33,   L34,   L35 }, \
-        {   R00,   R01,   R02,   R03,   R04, KC_NO }, \
-        {   R10,   R11,   R12,   R13,   R14, KC_NO }, \
-        {   R20,   R21,   R22,   R23,   R24, KC_NO }, \
-        {   R30, KC_NO, KC_NO, KC_NO,   R34,   R35 }, \
-    }
 };
