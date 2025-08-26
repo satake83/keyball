@@ -44,3 +44,56 @@ void keyball_on_adjust_layout(keyball_adjust_t v) {
     rgblight_set_effect_range(0, lednum_this + lednum_that);
 #endif
 }
+
+enum custom_keycodes {
+    PASS1 = SAFE_RANGE,
+    PASS2,
+    PASS3,
+    MAIL1,
+    MAIL2,
+    ADDRESS,
+    NOTEPAD
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch (keycode) {
+            case PASS1:
+                SEND_STRING(SS_LSFT("K") "OBATAKUN83\n");
+                return false;
+            case PASS2:
+                SEND_STRING("JREDN2025\n");
+                return false;
+            case PASS3:
+                SEND_STRING("JREDN2019\n");
+                return false;
+            case MAIL1:
+                SEND_STRING("tak-kobayashhi@" "jred.co.jp");
+                return false;
+            case MAIL2:
+                SEND_STRING("takun83@" "icloud.com");
+                return false;
+            case ADDRESS:
+                SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
+                return false;
+            case NOTEPAD:
+                tap_code16(LGUI(KC_R));  // Win + R
+                wait_ms(100);
+                SEND_STRING("notepad\n");
+                return false;
+        }
+    }
+    return true;
+}
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [0] = LAYOUT(
+        PASS1, PASS2, PASS3,
+        MAIL1, MAIL2, ADDRESS,
+        NOTEPAD, KC_NO, KC_NO
+    )
+};
+
+
+
+
