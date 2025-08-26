@@ -88,10 +88,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_right_ball( \
-    KC_Q, KC_W, KC_E, KC_R, KC_T,                             KC_Y, KC_U, PASS3, PASS2, PASS1, \
-    KC_A, KC_S, KC_D, KC_F, KC_G,                             KC_H, KC_J, MAIL1, MAIL2, ADDRESS, \
-    KC_Z, KC_X, KC_C, KC_V, KC_B,                             NOTEPAD, KC_M, KC_MB1, KC_MB3, KC_MB2, \
-    KC_LCTL, KC_LGUI, KC_LATL, KC_LSHT, KC_SPC,   KC_BSPC, KC_ENT,                           KC_RCTL  \
+    KC_Q, KC_W, KC_E, KC_R, KC_T,                                      KC_Y, KC_U, PASS3, PASS2, PASS1, \
+    KC_A, KC_S, KC_D, KC_F, KC_G,                                      KC_H, KC_J, MAIL1, MAIL2, ADDRESS, \
+    KC_Z, KC_X, KC_C, KC_V, KC_B,                                      NOTEPAD, KC_M, KC_MB1, KC_MB3, KC_MB2, \
+    KC_LCTL, KC_LGUI, KC_LATL, KC_LSHT, KC_LSHT, KC_SPC,   KC_BSPC, KC_ENT,                           KC_RCTL  \
     ) \
     { \
         {   L00,   L01,   L02,   L03,   L04, KC_NO }, \
