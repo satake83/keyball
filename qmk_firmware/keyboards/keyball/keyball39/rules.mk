@@ -50,3 +50,8 @@ MAGIC_ENABLE = no
 
 POINTING_DEVICE_ENABLE = yes
 POINTING_DEVICE_AUTO_MOUSE_ENABLE = yes
+
+CFLAGS += -Wno-unused-const-variable
+CFLAGS += -Wno-error
+
+
