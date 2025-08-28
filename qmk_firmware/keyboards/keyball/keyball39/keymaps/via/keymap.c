@@ -20,6 +20,93 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+
+enum custom_keycodes {
+    PASS1 = SAFE_RANGE,
+    PASS2,
+    PASS3,
+    PASS4,
+    MAIL1,
+    MAIL2,
+    ADDRESS,
+    NOTEPAD,
+    OPEN,
+    SCREEN,
+    BACK
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        switch (keycode) {
+
+//# user0
+case PASS1:
+ SEND_STRING("pjpj8787\n");
+return false;         
+            
+//# user1
+case PASS2:
+SEND_STRING("Kobataku83\n");
+return false;
+            
+//# user2
+case PASS3:
+SEND_STRING("jred2025\n");
+return false;
+            
+//# user3
+case PASS4:
+SEND_STRING("jred2019\n");
+return false;
+            
+//# user4
+case MAIL1:
+SEND_STRING("tak-kobayashi");
+tap_code16(S(KC_LBRC));
+SEND_STRING("jred.co.jp");
+return false;
+            
+//# user5
+case MAIL2:
+SEND_STRING("taku83");
+tap_code16(S(KC_LBRC));
+SEND_STRING("icloud.com");
+return false;
+            
+//# user6
+case ADDRESS:
+SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
+return false;
+            
+//# user7
+case NOTEPAD:
+tap_code16(LGUI(KC_R));
+wait_ms(100);
+SEND_STRING("notepad\n");
+return false;
+            
+//# user8
+case OPEN:
+tap_code16(LGUI(KC_R));
+wait_ms(100);
+tap_code16(C(KC_V));
+SEND_STRING("\n");
+return false;
+            
+//# user9
+case SCREEN:
+tap_code16(C(S(KC_S)));
+return false;
+            
+//# user10
+case BACK:
+tap_code16(LALT(KC_LEFT));
+return false;
+        }
+    }
+    return true;
+}
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
@@ -69,3 +156,35 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+#ifdef COMBO_ENABLE
+enum combos{
+QW_ESCAPE,
+AS_TAB,
+ZX_LSFT,
+OP_DELETE,
+LF24_ENTER,
+BTN3BTN2_RSFT,
+BACKSPACEENTER_DELETE,
+
+};
+
+const uint16_t PROGMEM my_qw[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM my_as[] = {KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM my_zx[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM my_op[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM my_lF24[] = {KC_L, KC_F24, COMBO_END};
+const uint16_t PROGMEM my_BTN3BTN2[] = {KC_BTN3, KC_BTN2, COMBO_END};
+const uint16_t PROGMEM my_BACKSPACEENTER[] = {KC_BACKSPACE, KC_ENTER, COMBO_END};
+
+combo_t key_combos[] = {
+[QW_ESCAPE] = COMBO(my_qw, KC_ESCAPE),
+[AS_TAB] = COMBO(my_as, KC_TAB),
+[ZX_LSFT] = COMBO(my_zx, KC_LSFT),
+[OP_DELETE] = COMBO(my_op, KC_DELETE),
+[LF24_ENTER] = COMBO(my_lF24, KC_ENTER),
+[BTN3BTN2_RSFT] = COMBO(my_BTN3BTN2, KC_RSFT),
+[BACKSPACEENTER_DELETE] = COMBO(my_BACKSPACEENTER, KC_DELETE),
+};
+#endif
+
