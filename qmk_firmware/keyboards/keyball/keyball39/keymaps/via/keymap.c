@@ -35,24 +35,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
 //# user0
             case PASS1:
-                SEND_STRING(SS_LSFT("K") "OBATAKUN83\n");
+                SEND_STRING("Kobataku83\n");
                 return false;
 //# user1
             case PASS2:
-                SEND_STRING("JREDN2025\n");
+                SEND_STRING("jred2025\n");
                 return false;
+//# user2
             case PASS3:
-                SEND_STRING("JREDN2019\n");
+                SEND_STRING("jred2019\n");
                 return false;
+//# user3
             case MAIL1:
-                SEND_STRING("tak-kobayashhi@" "jred.co.jp");
+                SEND_STRING("tak-kobayashi@jred.co.jp");
                 return false;
+//# user4
             case MAIL2:
-                SEND_STRING("takun83@" "icloud.com");
+                SEND_STRING("takun83@icloud.com");
                 return false;
+//# user5
             case ADDRESS:
                 SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
                 return false;
+//# user6
             case NOTEPAD:
                 tap_code16(LGUI(KC_R));  // Win + R
                 wait_ms(100);
