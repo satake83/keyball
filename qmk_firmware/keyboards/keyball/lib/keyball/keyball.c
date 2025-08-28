@@ -85,7 +85,7 @@ static inline int8_t clip2int8(int16_t v) {
 }
 
 #ifdef OLED_ENABLE
-static const char *format_4d(int8_t d) {
+// static const char *format_4d(int8_t d) {
     static char buf[5] = {0}; // max width (4) + NUL (1)
     char        lead   = ' ';
     if (d < 0) {
@@ -112,7 +112,7 @@ static const char *format_4d(int8_t d) {
     return buf;
 }
 
-static char to_1x(uint8_t x) {
+// static char to_1x(uint8_t x) {
     x &= 0x0f;
     return x < 10 ? x + '0' : x + 'a' - 10;
 }
