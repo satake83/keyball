@@ -24,10 +24,14 @@ enum custom_keycodes {
     PASS1 = SAFE_RANGE,
     PASS2,
     PASS3,
+    PASS4,
     MAIL1,
     MAIL2,
     ADDRESS,
-    NOTEPAD
+    NOTEPAD,
+    OPEN,
+    SCREEN,
+    BACK
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
