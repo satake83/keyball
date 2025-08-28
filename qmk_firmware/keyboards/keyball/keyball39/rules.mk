@@ -54,4 +54,4 @@ POINTING_DEVICE_AUTO_MOUSE_ENABLE = yes
 CFLAGS += -Wno-unused-const-variable
 CFLAGS += -Wno-error
 
-
+SRC += keyboards/keyball/keyball39/keyball39.c
