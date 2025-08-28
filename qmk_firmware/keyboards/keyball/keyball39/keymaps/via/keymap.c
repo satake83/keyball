@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+#define LAYOUT_no_ball(...) LAYOUT_ortho_5x12(__VA_ARGS__)
 
 enum custom_keycodes {
     PASS1 = SAFE_RANGE,
@@ -143,6 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,              S(KC_BSPC) , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS  
+  ),
 };
 
 // clang-format on
@@ -162,6 +164,7 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_ballinfo();
     keyball_oled_render_layerinfo();
 }
+
 #endif
 
 #ifdef COMBO_ENABLE
