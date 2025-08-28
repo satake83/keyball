@@ -15,14 +15,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdio.h>
-
-char* format_4d(int value) {
-    static char buf[5];  // 4桁 + null終端
-    snprintf(buf, sizeof(buf), "%4d", value);
-    return buf;
-}
-
 #include "quantum.h"
 #ifdef SPLIT_KEYBOARD
 #    include "transactions.h"
@@ -42,6 +34,8 @@ const uint16_t AML_TIMEOUT_MAX = 1000;
 const uint16_t AML_TIMEOUT_QU  = 50;   // Quantization Unit
 
 static const char BL = '\xB0'; // Blank indicator character
+static const char LFSTR_ON[] PROGMEM = "\xB2\xB3";
+static const char LFSTR_OFF[] PROGMEM = "\xB4\xB5";
 
 keyball_t keyball = {
     .this_have_ball = false,
@@ -92,6 +86,39 @@ static inline int8_t clip2int8(int16_t v) {
     return (v) < -127 ? -127 : (v) > 127 ? 127 : (int8_t)v;
 }
 
+#ifdef OLED_ENABLE
+static const char *format_4d(int8_t d) {
+    static char buf[5] = {0}; // max width (4) + NUL (1)
+    char        lead   = ' ';
+    if (d < 0) {
+        d    = -d;
+        lead = '-';
+    }
+    buf[3] = (d % 10) + '0';
+    d /= 10;
+    if (d == 0) {
+        buf[2] = lead;
+        lead   = ' ';
+    } else {
+        buf[2] = (d % 10) + '0';
+        d /= 10;
+    }
+    if (d == 0) {
+        buf[1] = lead;
+        lead   = ' ';
+    } else {
+        buf[1] = (d % 10) + '0';
+        d /= 10;
+    }
+    buf[0] = lead;
+    return buf;
+}
+
+static char to_1x(uint8_t x) {
+    x &= 0x0f;
+    return x < 10 ? x + '0' : x + 'a' - 10;
+}
+#endif
 
 static void add_cpi(int8_t delta) {
     int16_t v = keyball_get_cpi() + delta;
@@ -373,43 +400,43 @@ void keyball_oled_render_ballinfo(void) {
     //     Ball: -12  34   0   0
 
     // 1st line, "Ball" label, mouse x, y, h, and v.
-//    oled_write_P(PSTR("Ball\xB1"), false);
-//   oled_write(format_4d(keyball.last_mouse.x), false);
-//    oled_write(format_4d(keyball.last_mouse.y), false);
-//    oled_write(format_4d(keyball.last_mouse.h), false);
-//    oled_write(format_4d(keyball.last_mouse.v), false);
+    oled_write_P(PSTR("Ball\xB1"), false);
+    oled_write(format_4d(keyball.last_mouse.x), false);
+    oled_write(format_4d(keyball.last_mouse.y), false);
+    oled_write(format_4d(keyball.last_mouse.h), false);
+    oled_write(format_4d(keyball.last_mouse.v), false);
 
     // 2nd line, empty label and CPI
-//    oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
-//    oled_write(format_4d(keyball_get_cpi()) + 1, false);
-//    oled_write_P(PSTR("00 "), false);
+    oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
+    oled_write(format_4d(keyball_get_cpi()) + 1, false);
+    oled_write_P(PSTR("00 "), false);
 
     // indicate scroll snap mode: "VT" (vertical), "HO" (horizontal), and "SCR" (free)
 #if 1 && KEYBALL_SCROLLSNAP_ENABLE == 2
     switch (keyball_get_scrollsnap_mode()) {
         case KEYBALL_SCROLLSNAP_MODE_VERTICAL:
-//            oled_write_P(PSTR("VT"), false);
+            oled_write_P(PSTR("VT"), false);
             break;
         case KEYBALL_SCROLLSNAP_MODE_HORIZONTAL:
-//            oled_write_P(PSTR("HO"), false);
+            oled_write_P(PSTR("HO"), false);
             break;
         default:
-//            oled_write_P(PSTR("\xBE\xBF"), false);
+            oled_write_P(PSTR("\xBE\xBF"), false);
             break;
     }
 #else
-//    oled_write_P(PSTR("\xBE\xBF"), false);
+    oled_write_P(PSTR("\xBE\xBF"), false);
 #endif
     // indicate scroll mode: on/off
     if (keyball.scroll_mode) {
-//        oled_write_P(LFSTR_ON, false);
+        oled_write_P(LFSTR_ON, false);
     } else {
-//        oled_write_P(LFSTR_OFF, false);
+        oled_write_P(LFSTR_OFF, false);
     }
 
     // indicate scroll divider:
-//    oled_write_P(PSTR(" \xC0\xC1"), false);
-//    oled_write_char('0' + keyball_get_scroll_div(), false);
+    oled_write_P(PSTR(" \xC0\xC1"), false);
+    oled_write_char('0' + keyball_get_scroll_div(), false);
 #endif
 }
 
@@ -435,22 +462,22 @@ void keyball_oled_render_keyinfo(void) {
     //     Ball:   0   0   0   0
 
     // "Key" Label
-//    oled_write_P(PSTR("Key \xB1"), false);
+    oled_write_P(PSTR("Key \xB1"), false);
 
     // Row and column
-//    oled_write_char('\xB8', false);
-//    oled_write_char(to_1x(keyball.last_pos.row), false);
-//    oled_write_char('\xB9', false);
-//    oled_write_char(to_1x(keyball.last_pos.col), false);
+    oled_write_char('\xB8', false);
+    oled_write_char(to_1x(keyball.last_pos.row), false);
+    oled_write_char('\xB9', false);
+    oled_write_char(to_1x(keyball.last_pos.col), false);
 
     // Keycode
-//    oled_write_P(PSTR("\xBA\xBB"), false);
-//    oled_write_char(to_1x(keyball.last_kc >> 4), false);
-//    oled_write_char(to_1x(keyball.last_kc), false);
+    oled_write_P(PSTR("\xBA\xBB"), false);
+    oled_write_char(to_1x(keyball.last_kc >> 4), false);
+    oled_write_char(to_1x(keyball.last_kc), false);
 
     // Pressing keys
-//    oled_write_P(PSTR("  "), false);
-//    oled_write(keyball.pressing_keys, false);
+    oled_write_P(PSTR("  "), false);
+    oled_write(keyball.pressing_keys, false);
 #endif
 }
 
@@ -462,24 +489,24 @@ void keyball_oled_render_layerinfo(void) {
     //
     //     Layer:-23------------
     //
-//    oled_write_P(PSTR("L\xB6\xB7r\xB1"), false);
+    oled_write_P(PSTR("L\xB6\xB7r\xB1"), false);
     for (uint8_t i = 1; i < 8; i++) {
-//        oled_write_char((layer_state_is(i) ? to_1x(i) : BL), false);
+        oled_write_char((layer_state_is(i) ? to_1x(i) : BL), false);
     }
-//    oled_write_char(' ', false);
+    oled_write_char(' ', false);
 
 #    ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
-//    oled_write_P(PSTR("\xC2\xC3"), false);
+    oled_write_P(PSTR("\xC2\xC3"), false);
     if (get_auto_mouse_enable()) {
-//        oled_write_P(LFSTR_ON, false);
+        oled_write_P(LFSTR_ON, false);
     } else {
-//        oled_write_P(LFSTR_OFF, false);
+        oled_write_P(LFSTR_OFF, false);
     }
 
     oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
     oled_write_char('0', false);
 #    else
-//    oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
+    oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
 #    endif
 #endif
 }
