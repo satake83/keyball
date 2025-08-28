@@ -46,3 +46,4 @@ CFLAGS += -Wno-unused-const-variable
 CFLAGS += -Wno-error
 
 SRC += keyboards/keyball/keyball39/keyball39.c
+RGBLIGHT_ENABLE = no
