@@ -15,6 +15,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdio.h>
+
 char* format_4d(int value) {
     static char buf[5];  // 4桁 + null終端
     snprintf(buf, sizeof(buf), "%4d", value);
