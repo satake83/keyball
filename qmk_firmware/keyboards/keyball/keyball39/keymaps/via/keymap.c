@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     KC_ESC     ,  KC_EXLM  , S(KC_2)   , S(KC_3)  , S(KC_4)   ,                                      KC_SLSH     , KC_7      ,  KC_8     , KC_9       , KC_MINS    ,
     KC_TAB     ,  S(KC_5)  , S(KC_6)   , S(KC_7)  , S(KC_AT)  ,                                      KC_ASTR     , KC_4      ,  KC_5     , KC_6       , KC_PPLS    ,
-    KC_YEN     ,  KC_LBRC  , KC_RBRC   , S(KC_8)  , S(KC_9)   ,                                      KC_0        , KC_1      ,  KC_2     , KC_3       , KC_EQL     ,
+    KC_BSLS    ,  KC_LBRC  , KC_RBRC   , S(KC_8)  , S(KC_9)   ,                                      KC_0        , KC_1      ,  KC_2     , KC_3       , KC_EQL     ,
     _______    ,  _______  ,  _______  , _______  , _______   , _______  ,              S(KC_BSPC) , _______     , _______   ,  _______  , _______    , _______
   ),
 
@@ -132,9 +132,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_universal(
-    _______  , _______   , _______  , _______    , _______    ,                                      SCREEN     , MAIL1    ,  MAIL1    , OPEN      ,  PASS1     , 
-    _______  , _______   , _______  , _______    , _______    ,                                      PASS4      , PASS3    ,  PASS2    , ADDRESS   ,  LT(3)     ,
-    _______  , _______   , _______  , _______　  , _______    ,                                      NOTEPAD    , _______  ,  KC_BTN1  , KC_BTN3   ,  KC_BTN2   , 
+    _______  , _______   , _______  , _______    , _______    ,                                      SCREEN     , MAIL1    ,  MAIL1    , OPEN      ,  PASS1         , 
+    _______  , _______   , _______  , _______    , _______    ,                                      PASS4      , PASS3    ,  PASS2    , ADDRESS   ,  LT(3,KC_BTN3) ,
+    _______  , _______   , _______  , _______　  , _______    ,                                      NOTEPAD    , _______  ,  KC_BTN1  , KC_BTN3   ,  KC_BTN2       , 
     _______  , _______   , _______  , _______    , _______    , _______  ,             S(KC_BSPC),   _______    , _______  ,  _______  , _______   ,  BACK
   ),
 
