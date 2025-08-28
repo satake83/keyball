@@ -427,9 +427,9 @@ void keyball_oled_render_ballinfo(void) {
 #endif
     // indicate scroll mode: on/off
     if (keyball.scroll_mode) {
-        oled_write_P(LFSTR_ON, false);
+    //        oled_write_P(LFSTR_ON, false);
     } else {
-        oled_write_P(LFSTR_OFF, false);
+    //        oled_write_P(LFSTR_OFF, false);
     }
 
     // indicate scroll divider:
@@ -496,9 +496,9 @@ void keyball_oled_render_layerinfo(void) {
 #    ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
     oled_write_P(PSTR("\xC2\xC3"), false);
     if (get_auto_mouse_enable()) {
-        oled_write_P(LFSTR_ON, false);
+    //        oled_write_P(LFSTR_ON, false);
     } else {
-        oled_write_P(LFSTR_OFF, false);
+    //        oled_write_P(LFSTR_OFF, false);
     }
 
     oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
