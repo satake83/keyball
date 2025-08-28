@@ -398,43 +398,43 @@ void keyball_oled_render_ballinfo(void) {
     //     Ball: -12  34   0   0
 
     // 1st line, "Ball" label, mouse x, y, h, and v.
-    oled_write_P(PSTR("Ball\xB1"), false);
-    oled_write(format_4d(keyball.last_mouse.x), false);
-    oled_write(format_4d(keyball.last_mouse.y), false);
-    oled_write(format_4d(keyball.last_mouse.h), false);
-    oled_write(format_4d(keyball.last_mouse.v), false);
+//    oled_write_P(PSTR("Ball\xB1"), false);
+//   oled_write(format_4d(keyball.last_mouse.x), false);
+//    oled_write(format_4d(keyball.last_mouse.y), false);
+//    oled_write(format_4d(keyball.last_mouse.h), false);
+//    oled_write(format_4d(keyball.last_mouse.v), false);
 
     // 2nd line, empty label and CPI
-    oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
-    oled_write(format_4d(keyball_get_cpi()) + 1, false);
-    oled_write_P(PSTR("00 "), false);
+//    oled_write_P(PSTR("    \xB1\xBC\xBD"), false);
+//    oled_write(format_4d(keyball_get_cpi()) + 1, false);
+//    oled_write_P(PSTR("00 "), false);
 
     // indicate scroll snap mode: "VT" (vertical), "HO" (horizontal), and "SCR" (free)
 #if 1 && KEYBALL_SCROLLSNAP_ENABLE == 2
     switch (keyball_get_scrollsnap_mode()) {
         case KEYBALL_SCROLLSNAP_MODE_VERTICAL:
-            oled_write_P(PSTR("VT"), false);
+//            oled_write_P(PSTR("VT"), false);
             break;
         case KEYBALL_SCROLLSNAP_MODE_HORIZONTAL:
-            oled_write_P(PSTR("HO"), false);
+//            oled_write_P(PSTR("HO"), false);
             break;
         default:
-            oled_write_P(PSTR("\xBE\xBF"), false);
+//            oled_write_P(PSTR("\xBE\xBF"), false);
             break;
     }
 #else
-    oled_write_P(PSTR("\xBE\xBF"), false);
+//    oled_write_P(PSTR("\xBE\xBF"), false);
 #endif
     // indicate scroll mode: on/off
     if (keyball.scroll_mode) {
-        oled_write_P(LFSTR_ON, false);
+//        oled_write_P(LFSTR_ON, false);
     } else {
-        oled_write_P(LFSTR_OFF, false);
+//        oled_write_P(LFSTR_OFF, false);
     }
 
     // indicate scroll divider:
-    oled_write_P(PSTR(" \xC0\xC1"), false);
-    oled_write_char('0' + keyball_get_scroll_div(), false);
+//    oled_write_P(PSTR(" \xC0\xC1"), false);
+//    oled_write_char('0' + keyball_get_scroll_div(), false);
 #endif
 }
 
@@ -460,22 +460,22 @@ void keyball_oled_render_keyinfo(void) {
     //     Ball:   0   0   0   0
 
     // "Key" Label
-    oled_write_P(PSTR("Key \xB1"), false);
+//    oled_write_P(PSTR("Key \xB1"), false);
 
     // Row and column
-    oled_write_char('\xB8', false);
-    oled_write_char(to_1x(keyball.last_pos.row), false);
-    oled_write_char('\xB9', false);
-    oled_write_char(to_1x(keyball.last_pos.col), false);
+//    oled_write_char('\xB8', false);
+//    oled_write_char(to_1x(keyball.last_pos.row), false);
+//    oled_write_char('\xB9', false);
+//    oled_write_char(to_1x(keyball.last_pos.col), false);
 
     // Keycode
-    oled_write_P(PSTR("\xBA\xBB"), false);
-    oled_write_char(to_1x(keyball.last_kc >> 4), false);
-    oled_write_char(to_1x(keyball.last_kc), false);
+//    oled_write_P(PSTR("\xBA\xBB"), false);
+//    oled_write_char(to_1x(keyball.last_kc >> 4), false);
+//    oled_write_char(to_1x(keyball.last_kc), false);
 
     // Pressing keys
-    oled_write_P(PSTR("  "), false);
-    oled_write(keyball.pressing_keys, false);
+//    oled_write_P(PSTR("  "), false);
+//    oled_write(keyball.pressing_keys, false);
 #endif
 }
 
@@ -487,24 +487,24 @@ void keyball_oled_render_layerinfo(void) {
     //
     //     Layer:-23------------
     //
-    oled_write_P(PSTR("L\xB6\xB7r\xB1"), false);
+//    oled_write_P(PSTR("L\xB6\xB7r\xB1"), false);
     for (uint8_t i = 1; i < 8; i++) {
-        oled_write_char((layer_state_is(i) ? to_1x(i) : BL), false);
+//        oled_write_char((layer_state_is(i) ? to_1x(i) : BL), false);
     }
-    oled_write_char(' ', false);
+//    oled_write_char(' ', false);
 
 #    ifdef POINTING_DEVICE_AUTO_MOUSE_ENABLE
-    oled_write_P(PSTR("\xC2\xC3"), false);
+//    oled_write_P(PSTR("\xC2\xC3"), false);
     if (get_auto_mouse_enable()) {
-        oled_write_P(LFSTR_ON, false);
+//        oled_write_P(LFSTR_ON, false);
     } else {
-        oled_write_P(LFSTR_OFF, false);
+//        oled_write_P(LFSTR_OFF, false);
     }
 
     oled_write(format_4d(get_auto_mouse_timeout() / 10) + 1, false);
     oled_write_char('0', false);
 #    else
-    oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
+//    oled_write_P(PSTR("\xC2\xC3\xB4\xB5 ---"), false);
 #    endif
 #endif
 }
