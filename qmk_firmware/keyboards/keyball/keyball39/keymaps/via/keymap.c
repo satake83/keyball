@@ -62,14 +62,14 @@ return false;
 //# user4
 case MAIL1:
 SEND_STRING("tak-kobayashi");
-tap_code16(S(KC_LBRC));
+SEND_STRING("@");
 SEND_STRING("jred.co.jp");
 return false;
             
 //# user5
 case MAIL2:
 SEND_STRING("taku83");
-tap_code16(S(KC_LBRC));
+SEND_STRING("@");
 SEND_STRING("icloud.com");
 return false;
             
@@ -95,7 +95,7 @@ return false;
             
 //# user9
 case SCREEN:
-tap_code16(C(S(KC_S)));
+tap_code16(LGUI(S(KC_S)));
 return false;
             
 //# user10
@@ -111,38 +111,38 @@ return false;
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
-    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , MO(3)  ,
-    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
-    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                                     KC_Y     , KC_U     , KC_I     , MO(3,KC_O) , MO(1,KC_P) ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                                     KC_H     , KC_J     , KC_K     , KC_L       , MO(3)  ,
+    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                                     KC_N     , KC_M     , KC_BTN1  , KC_BTN3    , KC_BTN2 ,
+    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),MO(1,KC_SPC),MO(3,KC_LNG1),    KC_BSPC,MO(2,KC_ENT) ,LSFT_T(KC_LNG2), KC_RALT, KC_RGUI,  KC_RSFT
   ),
 
   [1] = LAYOUT_universal(
-    KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_RBRC  ,                            KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,
-    KC_F5    , KC_EXLM  , S(KC_6)  ,S(KC_INT3), S(KC_8)  ,                           S(KC_INT1), KC_BTN1  , KC_PGUP  , KC_BTN2  , KC_SCLN  ,
-    S(KC_EQL),S(KC_LBRC),S(KC_7)   , S(KC_2)  ,S(KC_RBRC),                            KC_LBRC  , KC_DLR   , KC_PGDN  , KC_BTN3  , KC_F11   ,
-    KC_INT1  , KC_EQL   , S(KC_3)  , _______  , _______  , _______  ,      TO(2)    , TO(0)    , _______  , KC_RALT  , KC_RGUI  , KC_F12
+   KC_ESC    ,  _______  ,  _______ , _______ , KC_MINS  ,                                      _______   , K(KC_7) ,  K(KC_8)  , K(KC_9)  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  ,                                      KC_QUOT   , K(KC_4) ,  K(KC_5)  , K(KC_6)  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  ,                                      K(KC_0)   , K(KC_1) ,  K(KC_2)  , K(KC_3)  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  , _______  ,                 _______  , _______  , _______ ,  _______  , _______  , _______
   ),
 
   [2] = LAYOUT_universal(
-    KC_TAB   , KC_7     , KC_8     , KC_9     , KC_MINS  ,                            KC_NUHS  , _______  , KC_BTN1  , _______  , KC_BSPC  ,
-   S(KC_QUOT), KC_4     , KC_5     , KC_6     ,S(KC_SCLN),                            S(KC_9)  , KC_BTN1  , KC_UP    , KC_BTN2  , KC_QUOT  ,
-    KC_SLSH  , KC_1     , KC_2     , KC_3     ,S(KC_MINS),                           S(KC_NUHS), KC_LEFT  , KC_DOWN  , KC_RGHT  , _______  ,
-    KC_ESC   , KC_0     , KC_DOT   , KC_DEL   , KC_ENT   , KC_BSPC  ,      _______  , _______  , _______  , _______  , _______  , _______
+    KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                                      _______  , KC_MINS  ,  KC_UP    , KC_PULS  , KC_F10   ,
+    KC_F6    , KC_F7    , KC_F8    , KC_F9    , KC_F10   ,                                      _______  , KC_LEFT  ,  KC_DOWN  , KC_RGHT  , KC_SCLN  ,
+    KC_F11   , KC_F12   , _______  , _______  , _______  ,                                      _______  , _______  ,  _______  , _______  , _______  ,
+    _______  , _______  , _______  , _______  , _______  , _______  ,               _______  ,  _______  , _______  ,  _______  , _______  , _______
   ),
 
   [3] = LAYOUT_universal(
-    KC_Q, KC_W, KC_E, KC_R, KC_T,                                                     SCREEN,   MAIL1,     MAIL1,     OPEN,      PASS1, 
-    KC_A, KC_S, KC_D, KC_F, KC_G,                                                     PASS4,    PASS3,     PASS2,     ADDRESS,   MO(3) ,
-    KC_Z, KC_X, KC_C, KC_V, KC_B,                                                     NOTEPAD,  KC_M,      KC_BTN1,   KC_BTN3,   KC_BTN2, 
-    KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LSFT, KC_SPC,                     KC_BSPC, KC_ENT,   _______  , _______  , _______  , BACK
+    KC_F1    , KC_F2    , KC_F3    , KC_F4    , KC_F5    ,                                      SCREEN   , MAIL1    ,  MAIL1    , OPEN     ,  PASS1    , 
+    KC_F6    , KC_EXLM  , S(KC_6)  ,S(KC_INT3), S(KC_8)  ,                                      PASS4    , PASS3    ,  PASS2    , ADDRESS  ,  MO(3)    ,
+    S(KC_EQL),S(KC_LBRC),S(KC_7)   , S(KC_2)  ,S(KC_RBRC),                                      NOTEPAD  , KC_M     ,  KC_BTN1  , KC_BTN3  ,  KC_BTN2  , 
+    KC_INT1  , KC_EQL   , S(KC_3)  , _______  , _______  , _______  ,                KC_BSPC,   KC_ENT   , _______  ,  _______  , _______  ,  BACK
   ),
 
   [4] = LAYOUT_universal(
-    KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , MO(4)  ,
-    KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
-    KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
+    _______  ,  _______  ,  _______ , _______ , _______  ,                                       _______  , _______ ,  _______  , _______  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  ,                                       _______  , _______ ,  _______  , _______  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  ,                                       _______  , _______ ,  _______  , _______  , _______  ,
+    _______  ,  _______  ,  _______ , _______ , _______  , _______  ,                 _______  , _______  , _______ ,  _______  , _______  , _______
   ),
 };
 
