@@ -38,58 +38,68 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
 //# user0
-            case PASS1:
-                SEND_STRING("pjpj8787\n");
-                return false;            
+case PASS1:
+ SEND_STRING("pjpj8787\n");
+return false;         
+            
 //# user1
-            case PASS2:
-                SEND_STRING("Kobataku83\n");
-                return false;
+case PASS2:
+SEND_STRING("Kobataku83\n");
+return false;
+            
 //# user2
-            case PASS3:
-                SEND_STRING("jred2025\n");
-                return false;
+case PASS3:
+SEND_STRING("jred2025\n");
+return false;
+            
 //# user3
-            case PASS4:
-                SEND_STRING("jred2019\n");
-                return false;
+case PASS4:
+SEND_STRING("jred2019\n");
+return false;
+            
 //# user4
-            case MAIL1:
-                SEND_STRING("tak-kobayashi");
-                tap_code16(S(KC_LBRC));
-                SEND_STRING("jred.co.jp");
-                return false;
+case MAIL1:
+SEND_STRING("tak-kobayashi");
+tap_code16(S(KC_LBRC));
+SEND_STRING("jred.co.jp");
+return false;
+            
 //# user5
-            case MAIL2:
-                SEND_STRING("taku83");
-                tap_code16(S(KC_LBRC));
-                SEND_STRING("icloud.com");
-                return false;
+case MAIL2:
+SEND_STRING("taku83");
+tap_code16(S(KC_LBRC));
+SEND_STRING("icloud.com");
+return false;
+            
 //# user6
-            case ADDRESS:
-                SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
-                return false;
+case ADDRESS:
+SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
+return false;
+            
 //# user7
-            case NOTEPAD:
-                tap_code16(LGUI(KC_R));
-                wait_ms(100);
-                SEND_STRING("notepad\n");
-                return false;
+case NOTEPAD:
+tap_code16(LGUI(KC_R));
+wait_ms(100);
+SEND_STRING("notepad\n");
+return false;
+            
 //# user8
-            case OPEN:
-                tap_code16(LGUI(KC_R));
-                wait_ms(100);
-　　　　　　　　　tap_code16(C(KC_V));
-                SEND_STRING("\n");
-                return false;
+case OPEN:
+tap_code16(LGUI(KC_R));
+wait_ms(100);
+tap_code16(C(KC_V));
+SEND_STRING("\n");
+return false;
+            
 //# user9
-            case SCREEN:
-　　　　　　　　　tap_code16(C(S(KC_S)));
-                return false;
+case SCREEN:
+tap_code16(C(S(KC_S)));
+return false;
+            
 //# user10
-            case BACK:
-                tap_code16(LALT(KC_LEFT));
-                return false;
+case BACK:
+tap_code16(LALT(KC_LEFT));
+return false;
         }
     }
     return true;
