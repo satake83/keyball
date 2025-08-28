@@ -71,7 +71,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case OPEN:
                 tap_code16(LGUI(KC_R));  // Win + R
                 wait_ms(100);
-                SEND_STRING(LCTL(KC_V)\n");
+                SEND_STRING(LCTL(KC_V));
+                SEND_STRING(\n);
                 return false;
 //# user9
             case SCREEN:
