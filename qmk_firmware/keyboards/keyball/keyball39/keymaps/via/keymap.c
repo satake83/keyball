@@ -33,9 +33,11 @@ enum custom_keycodes {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
         switch (keycode) {
+//# user0
             case PASS1:
                 SEND_STRING(SS_LSFT("K") "OBATAKUN83\n");
                 return false;
+//# user1
             case PASS2:
                 SEND_STRING("JREDN2025\n");
                 return false;
