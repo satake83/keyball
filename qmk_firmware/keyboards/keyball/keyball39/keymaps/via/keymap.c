@@ -55,11 +55,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
 //# user4
             case MAIL1:
-                SEND_STRING("tak-kobayashi@jred.co.jp");
+                SEND_STRING("tak-kobayashi");
+                tap_code16(S(KC_LBRC));
+                SEND_STRING("jred.co.jp");
                 return false;
 //# user5
             case MAIL2:
-                SEND_STRING("taku83@icloud.com");
+                SEND_STRING("taku83");
+                tap_code16(S(KC_LBRC));
+                SEND_STRING("icloud.com");
                 return false;
 //# user6
             case ADDRESS:
