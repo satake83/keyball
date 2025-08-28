@@ -75,12 +75,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case OPEN:
                 tap_code16(LGUI(KC_R));  // Win + R
                 wait_ms(100);
-                SEND_STRING(LCTL(KC_V));
-                SEND_STRING(\n);
+　　　　　　　　　tap_code16(C(KC_V));  // Ctrl + V を送信
+                SEND_STRING("\n");
                 return false;
 //# user9
             case SCREEN:
-                tap_code16(LCTL+LSFT(KC_S));
+　　　　　　　　　tap_code16(C(S(KC_S)));  // Ctrl + Shift + S を送信
                 return false;
 //# user10
             case BACK:
