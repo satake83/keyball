@@ -28,8 +28,17 @@ QUANTUM_LIB_SRC += spi_master.c # Optical sensor use SPI to communicate
 # This is unnecessary for processing KC_MS_BTN*.
 MOUSEKEY_ENABLE = no
 
+# Enabled only one of RGBLIGHT and RGB_MATRIX if necessary.
+RGBLIGHT_ENABLE = no        # Enable RGBLIGHT
+RGB_MATRIX_ENABLE = no      # Enable RGB_MATRIX (not work yet)
+RGB_MATRIX_DRIVER = ws2812
+
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
 SLEEP_LED_ENABLE = no       # Breathing sleep LED during USB suspend
+
+# To support OLED
+OLED_ENABLE = no                # Please Enable this in each keymaps.
+SRC += lib/oledkit/oledkit.c    # OLED utility for Keyball series.
 
 # Include common library
 SRC += lib/keyball/keyball.c
@@ -38,12 +47,3 @@ SRC += lib/keyball/keyball.c
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
-
-POINTING_DEVICE_ENABLE = yes
-POINTING_DEVICE_AUTO_MOUSE_ENABLE = yes
-
-CFLAGS += -Wno-unused-const-variable
-CFLAGS += -Wno-error
-
-SRC += keyboards/keyball/keyball39/keyball39.c
-RGBLIGHT_ENABLE = no
