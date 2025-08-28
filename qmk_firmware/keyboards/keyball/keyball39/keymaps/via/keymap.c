@@ -35,33 +35,51 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
 //# user0
             case PASS1:
-                SEND_STRING("Kobataku83\n");
-                return false;
+                SEND_STRING("pjpj8787\n");
+                return false;            
 //# user1
             case PASS2:
-                SEND_STRING("jred2025\n");
+                SEND_STRING("Kobataku83\n");
                 return false;
 //# user2
             case PASS3:
-                SEND_STRING("jred2019\n");
+                SEND_STRING("jred2025\n");
                 return false;
 //# user3
+            case PASS4:
+                SEND_STRING("jred2019\n");
+                return false;
+//# user4
             case MAIL1:
                 SEND_STRING("tak-kobayashi@jred.co.jp");
                 return false;
-//# user4
-            case MAIL2:
-                SEND_STRING("takun83@icloud.com");
-                return false;
 //# user5
+            case MAIL2:
+                SEND_STRING("taku83@icloud.com");
+                return false;
+//# user6
             case ADDRESS:
                 SEND_STRING("THE LINKPILLAR1 SOUTH 12F");
                 return false;
-//# user6
+//# user7
             case NOTEPAD:
                 tap_code16(LGUI(KC_R));  // Win + R
                 wait_ms(100);
                 SEND_STRING("notepad\n");
+                return false;
+//# user8
+            case OPEN:
+                tap_code16(LGUI(KC_R));  // Win + R
+                wait_ms(100);
+                SEND_STRING(LCTL(KC_V)\n");
+                return false;
+//# user9
+            case SCREEN:
+                tap_code16(LCTL+LSFT(KC_S));
+                return false;
+//# user10
+            case BACK:
+                tap_code16(LALT(KC_LEFT));
                 return false;
         }
     }
@@ -73,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // keymap for default (VIA)
   [0] = LAYOUT_universal(
     KC_Q     , KC_W     , KC_E     , KC_R     , KC_T     ,                            KC_Y     , KC_U     , KC_I     , KC_O     , KC_P     ,
-    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , MO(4)  ,
+    KC_A     , KC_S     , KC_D     , KC_F     , KC_G     ,                            KC_H     , KC_J     , KC_K     , KC_L     , MO(3)  ,
     KC_Z     , KC_X     , KC_C     , KC_V     , KC_B     ,                            KC_N     , KC_M     , KC_BTN1  , KC_BTN3  , KC_BTN2  ,
     KC_LCTL  , KC_LGUI  , KC_LALT  ,LSFT_T(KC_LNG2),LT(1,KC_SPC),LT(3,KC_LNG1),KC_BSPC,LT(2,KC_ENT),LSFT_T(KC_LNG2),KC_RALT,KC_RGUI, KC_RSFT
   ),
@@ -93,10 +111,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [3] = LAYOUT_universal(
-    KC_Q, KC_W, KC_E, KC_R, KC_T,                                                     KC_Y, KC_U, PASS3, PASS2, PASS1, 
-    KC_A, KC_S, KC_D, KC_F, KC_G,                                                     KC_H, KC_J, MAIL1, MAIL2, ADDRESS, 
-    KC_Z, KC_X, KC_C, KC_V, KC_B,                                                     NOTEPAD, KC_M, KC_MS_BTN1, KC_MS_BTN3, KC_MS_BTN2, 
-    KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LSFT, KC_SPC,                       KC_BSPC, KC_ENT, _______  , _______  , _______  , KC_RCTL
+    KC_Q, KC_W, KC_E, KC_R, KC_T,                                                     SCREEN,   MAIL1,     MAIL1,     OPEN,      PASS1, 
+    KC_A, KC_S, KC_D, KC_F, KC_G,                                                     PASS4,    PASS3,     PASS2,     ADDRESS,   MO(3) ,
+    KC_Z, KC_X, KC_C, KC_V, KC_B,                                                     NOTEPAD,  KC_M,      KC_BTN1,   KC_BTN3,   KC_BTN2, 
+    KC_LCTL, KC_LGUI, KC_LALT, KC_LSFT, KC_LSFT, KC_SPC,                     KC_BSPC, KC_ENT,   _______  , _______  , _______  , BACK
   ),
     
   [4] = LAYOUT_universal(
