@@ -67,20 +67,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
 //# user7
             case NOTEPAD:
-                tap_code16(LGUI(KC_R));  // Win + R
+                tap_code16(LGUI(KC_R));
                 wait_ms(100);
                 SEND_STRING("notepad\n");
                 return false;
 //# user8
             case OPEN:
-                tap_code16(LGUI(KC_R));  // Win + R
+                tap_code16(LGUI(KC_R));
                 wait_ms(100);
-　　　　　　　　　tap_code16(C(KC_V));  // Ctrl + V を送信
+　　　　　　　　　tap_code16(C(KC_V));
                 SEND_STRING("\n");
                 return false;
 //# user9
             case SCREEN:
-　　　　　　　　　tap_code16(C(S(KC_S)));  // Ctrl + Shift + S を送信
+　　　　　　　　　tap_code16(C(S(KC_S)));
                 return false;
 //# user10
             case BACK:
