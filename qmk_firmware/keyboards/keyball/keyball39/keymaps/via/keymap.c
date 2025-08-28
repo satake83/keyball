@@ -121,29 +121,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_ESC     ,  KC_EXLM  , S(KC_2)   , S(KC_3)  , S(KC_4)   ,                                      KC_SLSH     , KC_7      ,  KC_8     , KC_9       , KC_MINS    ,
     KC_TAB     ,  S(KC_5)  , S(KC_6)   , S(KC_7)  , S(KC_AT)  ,                                      KC_ASTR     , KC_4      ,  KC_5     , KC_6       , KC_PPLS    ,
     KC_BSLS    ,  KC_LBRC  , KC_RBRC   , S(KC_8)  , S(KC_9)   ,                                      KC_0        , KC_1      ,  KC_2     , KC_3       , KC_EQL     ,
-    _______    ,  _______  ,  _______  , _______  , _______   , _______  ,              S(KC_BSPC) , _______     , _______   ,  _______  , _______    , _______
+    KC_TRNS    ,  KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS   , KC_TRNS  ,              S(KC_BSPC) , KC_TRNS     , KC_TRNS   ,  KC_TRNS  , KC_TRNS    , KC_TRNS
   ),
 
   [2] = LAYOUT_universal(
     KC_F1    , KC_F2     , KC_F3    , KC_F4       , KC_F5     ,                                      KC_SCLN    , KC_MINS  ,  KC_UP        , S(KC_GRAVE) , S(KC_SLSH) ,
     KC_F6    , KC_F7     , KC_F8    , KC_F9       , KC_F10    ,                                      S(KC_SCLN) , KC_LEFT  ,  KC_DOWN      , KC_RGHT     , KC_AT      ,
     KC_F11   , KC_F12    , S(KC_6)  , S(KC_COMMA) , S(KC_DOT) ,                                      KC_COMM    , KC_DOT   ,  S(C(KC_TAB)) , C(KC_W)     , C(KC_TAB)  ,
-    _______  , _______   , _______  , _______     , _______   , _______  ,             S(KC_BSPC) ,  _______    , _______  ,  _______      , _______     , S(KC_MINS) 
+    KC_TRNS    ,  KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS   , KC_TRNS  ,              S(KC_BSPC) , KC_TRNS    , KC_TRNS  ,  KC_TRNS      , KC_TRNS     , S(KC_MINS) 
   ),
 
   [3] = LAYOUT_universal(
-    _______  , _______   , _______  , _______    , _______    ,                                      SCREEN     , MAIL1    ,  MAIL1    , OPEN      ,  PASS1         , 
-    _______  , _______   , _______  , _______    , _______    ,                                      PASS4      , PASS3    ,  PASS2    , ADDRESS   ,  LT(3,KC_BTN3) ,
-    _______  , _______   , _______  , _______　  , _______    ,                                      NOTEPAD    , _______  ,  KC_BTN1  , KC_BTN3   ,  KC_BTN2       , 
-    _______  , _______   , _______  , _______    , _______    , _______  ,             S(KC_BSPC),   _______    , _______  ,  _______  , _______   ,  BACK
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      SCREEN     , MAIL1    ,  MAIL1    , OPEN      ,  PASS1         , 
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                     PASS4      , PASS3    ,  PASS2    , ADDRESS   ,  LT(3,KC_BTN3) ,
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      NOTEPAD    , KC_TRNS  ,  KC_BTN1  , KC_BTN3   ,  KC_BTN2       , 
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,              S(KC_BSPC) , KC_TRNS    , KC_TRNS  ,  KC_TRNS  , KC_TRNS   ,  BACK
   ),
 
   [4] = LAYOUT_universal(
-    _______  ,  _______  ,  _______ , _______   , _______    ,                                        _______  , _______   ,  _______  , _______  , _______  ,
-    _______  ,  _______  ,  _______ , _______   , _______    ,                                        _______  , _______   ,  _______  , _______  , _______  ,
-    _______  ,  _______  ,  _______ , _______   , _______    ,                                        _______  , _______   ,  _______  , _______  , _______  ,
-    _______  ,  _______  ,  _______ , _______   , _______    , _______   ,                 _______  , _______  , _______   ,  _______  , _______  , _______
-  ),
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,              S(KC_BSPC) , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS  
 };
 
 // clang-format on
