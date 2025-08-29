@@ -61,14 +61,14 @@ return false;
 //# user4
 case MAIL1:
 SEND_STRING("tak-kobayashi");
-SEND_STRING("@");
+SEND_STRING(KC_LBRC);
 SEND_STRING("jred.co.jp");
 return false;
             
 //# user5
 case MAIL2:
 SEND_STRING("taku83");
-SEND_STRING("@");
+SEND_STRING(KC_LBRC);
 SEND_STRING("icloud.com");
 return false;
             
@@ -119,14 +119,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [1] = LAYOUT_universal(
     KC_ESC     ,  KC_EXLM  , S(KC_2)   , S(KC_3)  , S(KC_4)   ,                                      KC_SLSH     , KC_7      ,  KC_8     , KC_9       , KC_MINS    ,
     KC_TAB     ,  S(KC_5)  , S(KC_6)   , S(KC_7)  , S(KC_AT)  ,                                      KC_ASTR     , KC_4      ,  KC_5     , KC_6       , KC_PPLS    ,
-    KC_INT1    ,  KC_LBRC  , KC_RBRC   , S(KC_8)  , S(KC_9)   ,                                      KC_0        , KC_1      ,  KC_2     , KC_3       , KC_EQL     ,
-    KC_TRNS    ,  KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS   , KC_TRNS  ,               KC_DEL    , KC_TRNS     , KC_TRNS   ,  KC_TRNS  , KC_TRNS    , KC_TRNS
+    KC_INT1    ,  KC_RBRC  , s(KC_RBRC), S(KC_8)  , S(KC_9)   ,                                      KC_0        , KC_1      ,  KC_2     , KC_3       , KC_EQL     ,
+    KC_TRNS    ,  KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS   , KC_TRNS  ,               KC_DEL    , KC_TRNS     , KC_TRNS   ,  KC_TRNS  , KC_TRNS    , KC_DOT
   ),
 
   [2] = LAYOUT_universal(
     KC_F1    , KC_F2     , KC_F3    , KC_F4       , KC_F5     ,                                      KC_SCLN    , KC_MINS  ,  KC_UP        , S(KC_GRAVE) , S(KC_SLSH) ,
-    KC_F6    , KC_F7     , KC_F8    , KC_F9       , KC_F10    ,                                      S(KC_SCLN) , KC_LEFT  ,  KC_DOWN      , KC_RGHT     , S(KC_6)    ,
-    KC_F11   , KC_F12    , S(KC_6)  , S(KC_COMMA) , S(KC_DOT) ,                                      KC_COMM    , KC_DOT   ,  S(C(KC_TAB)) , C(KC_W)     , C(KC_MINS) ,
+    KC_F6    , KC_F7     , KC_F8    , KC_F9       , KC_F10    ,                                      KC_CLN     , KC_LEFT  ,  KC_DOWN      , KC_RGHT     , KC_LBRC    ,
+    KC_F11   , KC_F12    , S(KC_6)  , S(KC_COMMA) , S(KC_DOT) ,                                      KC_COMM    , KC_DOT   ,  S(C(KC_TAB)) , C(KC_W)     , C(KC_TAB)  ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS     , KC_TRNS   , KC_TRNS  ,               KC_DEL    , KC_TRNS    , KC_TRNS  ,  KC_TRNS      , KC_TRNS     , S(KC_INT1) 
   ),
 
