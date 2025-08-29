@@ -20,8 +20,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
-#define LAYOUT_universal LAYOUT_right_ball // 既存の定義済みレイアウトに変更
-
 enum custom_keycodes {
     PASS1 = SAFE_RANGE,
     PASS2,
