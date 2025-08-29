@@ -141,7 +141,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
-    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,            　  SKC_DEL  , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS  
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,            　  KC_DEL   , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS  
   ),
 };
 
