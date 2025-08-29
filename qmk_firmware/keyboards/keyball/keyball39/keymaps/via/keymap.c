@@ -134,14 +134,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      SCREEN     , MAIL1    ,  MAIL1    , OPEN      ,  PASS1         , 
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      PASS4      , PASS3    ,  PASS2    , ADDRESS   ,  LT(3,KC_BTN3) ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      NOTEPAD    , KC_TRNS  ,  KC_BTN1  , KC_BTN3   ,  KC_BTN2       , 
-    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,           　   KC_DEL    , KC_TRNS   , KC_TRNS  ,  KC_TRNS  , KC_TRNS   ,  BACK
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,               KC_DEL    , KC_TRNS    , KC_TRNS  ,  KC_TRNS  , KC_TRNS   ,  BACK
   ),
 
   [4] = LAYOUT_universal(
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
     KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    ,                                      KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS   ,
-    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,            　  KC_DEL   , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS  
+    KC_TRNS  , KC_TRNS   , KC_TRNS  , KC_TRNS    , KC_TRNS    , KC_TRNS  ,               KC_DEL    , KC_TRNS    , KC_TRNS   ,  KC_TRNS  , KC_TRNS  , KC_TRNS
   ),
 };
 
